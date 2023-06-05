@@ -1,16 +1,11 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using api.Data;
 using api.Entities;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace api.Controllers
 {
-    [ApiController]
-    [Route("api/[controller]")]
-    public class EmployeesController : ControllerBase
+    public class EmployeesController : BaseApiController
     {
         private readonly DataContext _context;
         public EmployeesController(DataContext context)
@@ -19,16 +14,19 @@ namespace api.Controllers
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<Employee>> GetEmployees(){
-            var employees = _context.Employees.ToList();
+        public async Task<ActionResult<IEnumerable<Employee>>> GetEmployees()
+        {
+            var employees = await _context.Employees.ToListAsync();
 
             return employees;
         }
+
         [HttpGet("{id}")]
-          public ActionResult<Employee> GetEmployee(int id){
-            var employee = _context.Employees.Find(id);
+        public async Task<ActionResult<Employee>> GetEmployee(int id)
+        {
+            var employee = await _context.Employees.FindAsync(id);
 
             return employee;
-         }
+        }
     }
 }
