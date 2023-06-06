@@ -141,3 +141,6 @@ C:\Users\Dylan\Projects\onyx-solutions\api\bin\Debug\net7.0\Microsoft.IdentityMo
 C:\Users\Dylan\Projects\onyx-solutions\api\bin\Debug\net7.0\Microsoft.IdentityModel.Logging.dll
 C:\Users\Dylan\Projects\onyx-solutions\api\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\Dylan\Projects\onyx-solutions\api\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Dylan\Projects\onyx-solutions\api\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Dylan\Projects\onyx-solutions\api\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Dylan\Projects\onyx-solutions\api\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
