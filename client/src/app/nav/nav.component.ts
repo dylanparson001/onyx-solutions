@@ -9,7 +9,7 @@ import { AccountService } from '../_services/account.service';
 export class NavComponent implements OnInit {
   model: any = {};
   loggedIn: boolean = false;
-
+  user:any = '';
   constructor(private accountService: AccountService) {}
 
   ngOnInit(): void {}
@@ -23,6 +23,8 @@ export class NavComponent implements OnInit {
       error: error => console.log(error)
 
     })
+    this.user = this.model.username.toUpperCase();
+
   }
 
   logout(){

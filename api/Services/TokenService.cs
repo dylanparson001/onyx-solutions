@@ -6,6 +6,8 @@ using api.Entities;
 using api.Interfaces;
 using Microsoft.IdentityModel.Tokens;
 
+// Used to clean up the program class, handling token services 
+
 namespace api.Services
 {
     public class TokenService : ITokenService

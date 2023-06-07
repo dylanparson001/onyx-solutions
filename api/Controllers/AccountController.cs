@@ -11,6 +11,8 @@ using api.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
+// A lot going on here for security, use of JWT services to create tokens, hashing and salting passwords
+
 namespace api.Controllers
 {
     public class AccountController : BaseApiController
@@ -50,11 +52,12 @@ namespace api.Controllers
         [HttpPost("login")]
         public async Task<ActionResult<EmployeeDto>> Login(LoginDto loginDto)
         {
+            // Search for employee
             var employee = await _context.Employees.SingleOrDefaultAsync(
-                x => x.UserName == loginDto.Username);
+                x => x.UserName == loginDto.Username.ToUpper());
             
             if(employee == null) return Unauthorized();
-                
+             // salt provided password    
             using var hmac = new HMACSHA512(employee.PasswordSalt);
 
             var computedHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(loginDto.Password));
@@ -64,7 +67,7 @@ namespace api.Controllers
             }
             return new EmployeeDto
             {
-                Username = employee.UserName,
+                Username = employee.UserName.ToUpper(),
                 Token = _tokenService.CreateToken(employee)
             };
         }
