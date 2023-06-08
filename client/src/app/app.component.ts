@@ -1,5 +1,6 @@
-import { HttpClient } from '@angular/common/http'
 import { Component, OnInit } from '@angular/core';
+import { AccountService } from './_services/account.service';
+import { Employee } from './_models/employee';
 
 @Component({
   selector: 'app-root',
@@ -8,17 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
   title = 'Onyx Solutions';
-  employees: any;
 
-  constructor(private http: HttpClient) { }
+  constructor(private accountService: AccountService) { }
+
   ngOnInit(): void {
-    this.http.get('https://localhost:5001/api/Employees').subscribe({
-      next: response => this.employees = response,
-      error: error => {console.log(error)},
-      complete: () => {}
-    }
+   this.setCurrentEmployee();
+  }
 
-    )
+  setCurrentEmployee(){
+    // gets employee from local storage if it exists
+    const employeeString = localStorage.getItem("employee");
+    // if it doesnt, return from function
+    if(!employeeString) return;
+
+    // gets employee parsed from string
+    const employee: Employee = JSON.parse(employeeString);
+
+
+    this.accountService.setCurrentEmployee(employee);
   }
 
 
