@@ -1,11 +1,17 @@
-# Onyx Solutions 
+<h1>Onyx Solutions</h1>
 
-## This will be a fully fledged enterprise level web application capable of handling many users, requests, and data
-## The purpose is to handle a service company's customer appointments, their schedules, technicians, invoices. 
+ ### [YouTube Demonstration](https://youtu.be/7eJexJVCqJo)
 
-## The application will have features such as:
+<h2>Description</h2>
+This project is a full stack web application that serves as a CRM of sorts typically used by a service/ home repair company. The design is tailored towards scheduling technicians for repairs / sales calls, along with being able to chat instantly while techs are in the field. 
+<br />
 
-### User Authentication and Authorization
-### Chat features between technicians and office staff
-### Appointment Scheduling
-### Invoice generation
+
+<h2>Technologies Used</h2>
+
+- <b>C#</b> 
+- <b>Dot Net Core</b>
+- <b>Dot Net Web API</b>
+- <b>Entity Framework</b>  
+- <b>Angular</b> 
+- <b>PostgreSQL</b> 
