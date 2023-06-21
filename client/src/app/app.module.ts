@@ -13,6 +13,7 @@ import { RegisterComponent } from './register/register.component';
 import { ChatComponent } from './chat/chat.component';
 import { SchedulesComponent } from './schedules/schedules.component';
 import { EmployeeDetailComponent } from './employees/employee-detail/employee-detail.component';
+import { InvoicesComponent } from './invoices/invoices.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { EmployeeDetailComponent } from './employees/employee-detail/employee-de
     RegisterComponent,
     ChatComponent,
     SchedulesComponent,
-    EmployeeDetailComponent
+    EmployeeDetailComponent,
+    InvoicesComponent
   ],
   imports: [
     BrowserAnimationsModule,
