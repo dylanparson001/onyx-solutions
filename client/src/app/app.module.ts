@@ -14,6 +14,8 @@ import { ChatComponent } from './chat/chat.component';
 import { SchedulesComponent } from './schedules/schedules.component';
 import { EmployeeDetailComponent } from './employees/employee-detail/employee-detail.component';
 import { InvoicesComponent } from './invoices/invoices.component';
+import {ToastrModule} from "ngx-toastr";
+import {SharedModule} from "./_modules/shared.module";
 
 @NgModule({
   declarations: [
@@ -33,7 +35,7 @@ import { InvoicesComponent } from './invoices/invoices.component';
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
-    BsDropdownModule.forRoot()
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

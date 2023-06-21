@@ -52,11 +52,13 @@ namespace api.Controllers
         [HttpPost("login")]
         public async Task<ActionResult<EmployeeDto>> Login(LoginDto loginDto)
         {
+            if (loginDto == null) return Unauthorized("Empty Fields");
+            
             // Search for employee
             var employee = await _context.Employees.SingleOrDefaultAsync(
                 x => x.UserName == loginDto.Username.ToUpper());
             
-            if(employee == null) return Unauthorized();
+            if(employee == null) return Unauthorized("User Does Not Exist");
              // salt provided password    
             using var hmac = new HMACSHA512(employee.PasswordSalt);
 
