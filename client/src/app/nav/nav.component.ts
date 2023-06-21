@@ -11,7 +11,7 @@ import {ToastrService} from "ngx-toastr";
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {
-  model: any = {};
+  model: any = {}; // set through ngM
   user:any = '';
 
   constructor(public accountService: AccountService, private router: Router, private toastr: ToastrService) {}
@@ -23,16 +23,18 @@ export class NavComponent implements OnInit {
     this.accountService.login(this.model).subscribe({
       next: () => this.router.navigateByUrl('/schedules'),
       error: error => {
-        console.log(error)
-        this.toastr.error('Failed to login', error.error)
+        // logs entire error
+        console.log(error.error)
+        // outputs error message to user via toast service
+        this.toastr.error(error.error, 'Failed to login')
       }
     })
-    // returns user name to display
-    this.user = 'User';
   }
 
   logout(){
+    // log out and return to home
     this.accountService.logout();
+
     this.router.navigateByUrl('/home')
 
   }

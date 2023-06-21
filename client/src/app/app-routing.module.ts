@@ -8,6 +8,8 @@ import {AuthGuard} from "./_guards/auth.guard";
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
+
+  // Set to use auth guard for these routes, avoids having to specify each authguard on every component
   {path: '',
     runGuardsAndResolvers: 'always',
     canActivate: [AuthGuard],

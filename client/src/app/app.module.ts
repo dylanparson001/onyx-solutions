@@ -16,6 +16,7 @@ import { EmployeeDetailComponent } from './employees/employee-detail/employee-de
 import { InvoicesComponent } from './invoices/invoices.component';
 import {ToastrModule} from "ngx-toastr";
 import {SharedModule} from "./_modules/shared.module";
+import { TestErrorComponent } from './errors/test-error/test-error.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import {SharedModule} from "./_modules/shared.module";
     ChatComponent,
     SchedulesComponent,
     EmployeeDetailComponent,
-    InvoicesComponent
+    InvoicesComponent,
+    TestErrorComponent
   ],
   imports: [
     BrowserAnimationsModule,

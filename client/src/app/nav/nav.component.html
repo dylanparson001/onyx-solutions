@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
   <div class="container">
     <a class="navbar-brand" href="#">Onyx Solutions</a>
     <button
@@ -15,6 +15,7 @@
 
     <div class="navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav me-auto mb-2 mb-md-0" >
+        <!-- looks kind of funky, uses observable to test for user signed in or not        -->
         <ng-container *ngIf="accountService.currentEmployee$ | async">
           <li class="nav-item">
             <a class="nav-link" routerLink="/schedules" routerLinkActive="active">Schedule</a>
@@ -30,6 +31,7 @@
       </ul>
 
       <div class="dropdown " *ngIf="(accountService.currentEmployee$  | async) as user" dropdown>
+        <!--Can use the observable for acccount service to get username to display-->
         <a class="dropdown-toggle text-light text-decoration-none" dropdownToggle>Welcome {{user.username | titlecase}}</a>
         <div class="dropdown-menu mt-3" *dropdownMenu>
           <a class="dropdown-item">Edit Profile</a>
@@ -37,8 +39,8 @@
         </div>
       </div>
 
-
     </div>
+
     <form
       #loginForm="ngForm"
       class="d-flex"
@@ -46,6 +48,7 @@
       autocomplete="off"
       *ngIf="!(accountService.currentEmployee$  | async)"
     >
+      <!-- Uses ngmodel to set model variables when submitted      -->
       <input
         class="form-control me-2"
         name="username"

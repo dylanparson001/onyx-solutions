@@ -26,7 +26,8 @@ export class RegisterComponent {
         this.cancel();
       },
       error: error => {
-        this.toastr.error(error)
+        console.log(error.error)
+        this.toastr.error(error.error.title, 'Failed to register')
       }
 
     })
