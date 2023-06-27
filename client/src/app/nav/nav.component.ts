@@ -21,13 +21,7 @@ export class NavComponent implements OnInit {
   login(){
     // uses account service to login to application
     this.accountService.login(this.model).subscribe({
-      next: () => this.router.navigateByUrl('/schedules'),
-      error: error => {
-        // logs entire error
-        console.log(error.error)
-        // outputs error message to user via toast service
-        this.toastr.error(error.error, 'Failed to login')
-      }
+      next: () => this.router.navigateByUrl('/schedules')
     })
   }
 

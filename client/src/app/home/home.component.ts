@@ -19,8 +19,7 @@ export class HomeComponent {
   getEmployees(){
     this.http.get('https://localhost:5001/api/Employees').subscribe({
       next: response => this.employees = response,
-      error: error => {console.log(error)},
-      complete: () => {}
+      error: error => {console.log(error)}
     })
   }
   registerToggle(){
